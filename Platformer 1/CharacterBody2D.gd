@@ -14,31 +14,34 @@ var last_dash_time = 0
 var dash_duration = 200.0
 var dash_speed = 500
 var player_health = 100
+var grounded: bool
 
 #func _dash_ease(t):
 #	return - t**10+1
 	
 	
 func _physics_process(delta):
-	# Add the gravity.
+	# Add the gravity. 
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		
 	if is_on_floor():
 		jump_count = 2
 		last_time_on_floor = Time.get_ticks_msec()
-	var _can_coyotejump = Time.get_ticks_msec() - last_time_on_floor < 2000
 		
-
-	if jump_count !=0 and Input.is_action_just_pressed("action_jump"):
+	var airborne_time = Time.get_ticks_msec() - last_time_on_floor
+	if airborne_time < 300:
+		jump_count = 1
+		
+	if jump_count > 0 and Input.is_action_just_pressed("action_jump"):
 		velocity.y = JUMP_VELOCITY
 		jump_count -= 1
 		print (jump_count)
 		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction_x = Input.get_axis("ui_left", "ui_right")
-	var direction_y = Input.get_axis("ui_up", "ui_down")
+	var direction_x = Input.get_axis("Left", "Right")
+	var direction_y = Input.get_axis("Up", "Down")
 	if direction_x:
 		velocity.x = direction_x * SPEED
 	else:
