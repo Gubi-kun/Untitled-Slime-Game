@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnhyj0pijx8uj"]
+
+[ext_resource type="Script" path="res://bberry_pickup.gd" id="1_n7bme"]
+[ext_resource type="Texture2D" uid="uid://b2t6bcmx6gc21" path="res://Art/Blueberry Pickup.png" id="1_qtq06"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbods"]
+size = Vector2(16, 16)
+
+[node name="BberryPickup" type="Area2D" groups=["Blueberry"]]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_n7bme")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sbods")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qtq06")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
