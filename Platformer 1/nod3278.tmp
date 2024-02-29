@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdbo472oshy0p"]
+[gd_scene load_steps=17 format=3 uid="uid://bdbo472oshy0p"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_b2br4"]
 [ext_resource type="Texture2D" uid="uid://ip5p6dftwb23" path="res://Art/Rimuru real.png" id="2_y1l8f"]
@@ -14,13 +14,10 @@
 size = Vector2(14, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7femc"]
-size = Vector2(16, 11)
+size = Vector2(14, 9)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3nhb"]
-size = Vector2(14, 10)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_akpce"]
-size = Vector2(16, 11)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tnu8"]
+size = Vector2(14, 11)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfjjn"]
 texture = ExtResource("4_2xd57")
@@ -643,23 +640,15 @@ position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_7femc")
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
-position = Vector2(-97, -96)
-collision_layer = 5
-collision_mask = 5
+position = Vector2(-47, -24)
 script = ExtResource("7_67hkx")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
 texture = ExtResource("8_14nmx")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D2"]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_t3nhb")
-
-[node name="CollisionShape2D" type="Area2D" parent="CharacterBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
 position = Vector2(0, 2.5)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D2/CollisionShape2D"]
-shape = SubResource("RectangleShape2D_akpce")
+shape = SubResource("RectangleShape2D_6tnu8")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_736xo")

@@ -58,16 +58,15 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func _on_hitbox_body_entered(body):
+func _on_hitbox_body_entered(_body):
 	
 	print ("entered")
-	if velocity.y > 0:
-		player_health -= 20
-		print(player_health)
+	player_health -= 20
+	print(player_health)
 
 
 
-func _on_bberry_pickup_2_body_entered(body):
+func _on_bberry_pickup_2_body_entered(_body):
 	print("picked up item")
 	if player_health < 100:
 		player_health += 20
@@ -76,3 +75,4 @@ func _on_bberry_pickup_2_body_entered(body):
 	if player_health > 100:
 		player_health = 100
 		print(player_health)
+

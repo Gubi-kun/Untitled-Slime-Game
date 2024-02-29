@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg02ktyjy6exo"]
+
+[ext_resource type="AudioStream" uid="uid://qfddjwlcsucd" path="res://Audio/Palmtree Panic _P_ mix.mp3" id="1_d1xxe"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_d1xxe")
+autoplay = true
